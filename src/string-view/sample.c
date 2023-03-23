@@ -11,7 +11,7 @@ int main(void)
 {
     char* input = "some input string";
 
-    // make a constant string view object
+    // make an immutable view object
     StringView const sv = sv_create(input, 5, 5);
 
     // check what the view sees
@@ -25,12 +25,15 @@ int main(void)
     output[0] = 'I';
     printf("|%s|\n", output);
 
-    // don't forget to free allocated strings
+    // free the allocated string
     free(output);
 
-    // we can retrieve the underlying string but not modify it
+    // we can retrieve the underlying string
     char const* str = sv_referenced_string(sv);
     printf("referenced string: \"%s\" (length = %lu)\n", str, strlen(str));
+
+    // but not modify it
+    // str[0] = 'S'; // compile error
 
     // make a non constant string view object (not really recommended)
     StringView msv = sv_create(input, 11, 6);

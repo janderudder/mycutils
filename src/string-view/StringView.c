@@ -1,11 +1,11 @@
-#include "StringView.h"
+#include "string-view/StringView.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 
-StringView sv_create(StringRORef const string, size_t const start, size_t const length)
+StringView sv_create(char const* const string, size_t const start, size_t const length)
 {
     return (StringView){string, start, length};
 }
@@ -23,7 +23,7 @@ size_t sv_start_index(StringView const sv)
 }
 
 
-StringRORef sv_referenced_string(StringView const sv)
+char const* sv_referenced_string(StringView const sv)
 {
     return sv.string;
 }
