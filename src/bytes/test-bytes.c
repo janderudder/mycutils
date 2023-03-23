@@ -4,18 +4,6 @@
 #include <stdlib.h>
 
 
-
-void print_byte_array(uint8_t const* const array, size_t const size)
-{
-    for (size_t i=0; i<size; ++i)
-    {
-        printf("%.2x ", array[i]);
-    }
-    printf("\n");
-}
-
-
-
 int main(void)
 {
     printf(
